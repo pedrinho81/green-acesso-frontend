@@ -1,7 +1,50 @@
 import Head from 'next/head'
 import { Layout } from '@/components/Layout'
+import { CharacterList } from '@/components/CharacteresList'
 //import Image from 'next/image'
-
+const mock = [{
+  name: 'Rick',
+  status: 'ativo',
+  image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg'
+},
+{
+  name: 'Pedro',
+  status: 'ativo',
+  image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg'
+},
+{
+  name: 'Seu Jorge',
+  status: 'ativo',
+  image: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg'
+},
+{
+  name: 'Gleyce',
+  status: 'ativo',
+  image: 'https://rickandmortyapi.com/api/character/avatar/4.jpeg'
+},
+{
+  name: 'Estevão ferreira',
+  status: 'ativo',
+  image: 'https://rickandmortyapi.com/api/character/avatar/5.jpeg'
+}
+,
+{
+  name: 'Estevão ferreira',
+  status: 'ativo',
+  image: 'https://rickandmortyapi.com/api/character/avatar/6.jpeg'
+}
+,
+{
+  name: 'Estevão ferreira',
+  status: 'ativo',
+  image: 'https://rickandmortyapi.com/api/character/avatar/7.jpeg'
+}
+,
+{
+  name: 'Estevão ferreira',
+  status: 'ativo',
+  image: 'https://rickandmortyapi.com/api/character/avatar/8.jpeg'
+}]
 
 export default function Home() {
   return (
@@ -16,7 +59,8 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet" />
       </Head>
       <Layout>
-        
+        <CharacterList
+        characters={mock}/>
       </Layout>
     </>
   )
