@@ -1,16 +1,15 @@
 import { api } from "lib/api";
-
-export const getAllCharacter = async () => {
+import { CharacterListProps } from "@/components/CharacteresList/characterList.types";
+export const getCharactersData = async (params?: string) => {
   try {
-    const {data} = await api.get('/character')
+    const {data} = await api.get(`/character${params && `/${params}`}`)
     console.log('@@res:')
     console.log(data)
     return data;
   } catch (error: any) {
     console.log('@@err:response')
-    console.log(error.response)
+    console.log(error.response.data.error)
     console.log('@@err:message')
-
     console.log(error.message)
     /* error.response
       ? toast.error(error.response.data.message)

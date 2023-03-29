@@ -11,7 +11,15 @@
 body {
   color: #fff;
   background-color: rgb(63 63 70);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 1rem;
 }
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
 
   
 #__next {

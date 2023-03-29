@@ -1,7 +1,13 @@
+import { CharacterProps } from "../Character/Character.types";
 export type CharacterListProps = {
   results: {
     name: string;
-    status: string;
+    status: "Dead" | "Alive" | "unknown";
     image: string;
-  }[] | null
+    species: string
+    location: {
+      name: string
+    }
+  }[] | null 
 }
+

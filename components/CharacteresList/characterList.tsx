@@ -1,5 +1,4 @@
 import * as C from "./styles"
-import Image from "next/image"
 import { CharacterListProps } from "./characterList.types"
 import {Character} from '@/components/Character'
 import Loading from "../Loading"
@@ -8,7 +7,7 @@ export const CharacterList:React.FC<CharacterListProps> = ({results}) => {
     <>
     <C.Title>Personagens</C.Title>
     <C.Container>
-    {results ? results.map((character) => (
+    {results && results.length > 0 ? results.map((character) => (
       <Character character={character}/>
     ))
     : <Loading/> }

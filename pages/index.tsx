@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { Layout } from '@/components/Layout'
 import { CharacterList } from '@/components/CharacteresList'
-import { getAllCharacter } from 'services/CharacterService'
-import { AxiosResponse } from 'axios'
+import { getCharactersData } from 'services/CharacterService'
+import { api } from 'lib/api'
 import { CharacterListProps } from '@/components/CharacteresList/characterList.types'
 import { Search } from '@/components/Search'
 const mock = [{
@@ -51,18 +51,18 @@ const mock = [{
 }]
 
 export default function Home() {
-  const [characters, setCharacters] = useState<CharacterListProps | null>(null);
+  const [characters, setCharacters] = useState<CharacterListProps | null >(null);
 
-  const getAllCharacters = async () => {
-    const res:CharacterListProps = await getAllCharacter()
+  const getAllCharacters = async (params: string) => {
+    const res:CharacterListProps = await getCharactersData(params)
     console.log(res)
     setCharacters(res)
   }
 
    useEffect( () =>   {
     console.log('render')
-    getAllCharacters()
-  }, [])
+    getAllCharacters('')
+  }, [api])
   return (
     <>
       <Head>
@@ -75,7 +75,7 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet" />
       </Head>
       <Layout>
-        <Search/>
+        <Search setCharacters={setCharacters}/>
         <CharacterList
         results={characters && characters.results}/>
       </Layout>

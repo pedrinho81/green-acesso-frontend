@@ -5,7 +5,7 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    domains: ['rickandmortyapi.com']
+    domains: ['rickandmortyapi.com','img.icons8.com']
   },
   
 }
