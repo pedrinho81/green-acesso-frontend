@@ -1,5 +1,9 @@
-import { CharacterProps } from "../Character/Character.types";
 export type CharacterListProps = {
+  info: {
+    pages: number
+  prev: string,
+  next: string
+  } | null,
   results: {
     name: string;
     status: "Dead" | "Alive" | "unknown";

@@ -1,34 +1,23 @@
-import {FormEvent, useState} from "react";
-import { getCharactersData } from "services/CharacterService";
-import {toast} from 'react-toastify'
-import { SearchProps, ParamsProps } from "./search.types";
+import {FormEvent, useState, useContext} from "react";
+import { ApiContext } from "context/api";
 import Loading from "../Loading";
 import { FormContainer } from "./styles";
 import Image from "next/image";
-export const Search:React.FC<SearchProps> = ({setCharacters}) => {
-
-  const [params, setParams] = useState<ParamsProps | null>({})
+export const Search:React.FC = () => {
+  const [search, setSearch] = useState<string>('')
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const paramsFilter = params ? 
-  `?name=${params.name}`
-  : '';
-
+  const {setPage, setName} = useContext(ApiContext)
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     setIsLoading(true)
     event.preventDefault()
-    const res = await getCharactersData(paramsFilter)
-    console.log(params)
-    console.log(res)
-    res ? setCharacters(res) : toast.error('Não há resultados para sua busca.')
+    setPage(1)
+    setName(search)
     setIsLoading(false)
   }
 
   const handleChangeParam = ({target}: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = target
-    setParams({
-        ...params,
-        [name]: value
-    })
+    const { value } = target
+    setSearch(value)
 }
   return (
     <FormContainer onSubmit={handleSubmit}>

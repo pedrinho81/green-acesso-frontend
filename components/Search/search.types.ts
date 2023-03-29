@@ -1,9 +1,8 @@
 import { SetStateAction, Dispatch } from "react"
-import { CharacterListProps } from "../CharacteresList/characterList.types";
-
+/* import { CharacterListProps } from "../CharacteresList/characterList.types";
 export type SearchProps = {
-  setCharacters: Dispatch<SetStateAction<CharacterListProps | null>>
-}
+  setName: Dispatch<SetStateAction<string >>
+} */
 
 export type ParamsProps = {
   name?: string,

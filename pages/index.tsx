@@ -1,68 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import Head from 'next/head'
 import { Layout } from '@/components/Layout'
 import { CharacterList } from '@/components/CharacteresList'
-import { getCharactersData } from 'services/CharacterService'
-import { api } from 'lib/api'
+import { ParamsProps } from '@/components/Search/search.types'
+import { ApiContext, ApiProvider } from 'context/api';
+
 import { CharacterListProps } from '@/components/CharacteresList/characterList.types'
 import { Search } from '@/components/Search'
-const mock = [{
-  name: 'Rick',
-  status: 'ativo',
-  image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg'
-},
-{
-  name: 'Pedro',
-  status: 'ativo',
-  image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg'
-},
-{
-  name: 'Seu Jorge',
-  status: 'ativo',
-  image: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg'
-},
-{
-  name: 'Gleyce',
-  status: 'ativo',
-  image: 'https://rickandmortyapi.com/api/character/avatar/4.jpeg'
-},
-{
-  name: 'Estevão ferreira',
-  status: 'ativo',
-  image: 'https://rickandmortyapi.com/api/character/avatar/5.jpeg'
-}
-,
-{
-  name: 'Estevão ferreira',
-  status: 'ativo',
-  image: 'https://rickandmortyapi.com/api/character/avatar/6.jpeg'
-}
-,
-{
-  name: 'Estevão ferreira',
-  status: 'ativo',
-  image: 'https://rickandmortyapi.com/api/character/avatar/7.jpeg'
-}
-,
-{
-  name: 'Estevão ferreira',
-  status: 'ativo',
-  image: 'https://rickandmortyapi.com/api/character/avatar/8.jpeg'
-}]
+
 
 export default function Home() {
-  const [characters, setCharacters] = useState<CharacterListProps | null >(null);
-
-  const getAllCharacters = async (params: string) => {
-    const res:CharacterListProps = await getCharactersData(params)
-    console.log(res)
-    setCharacters(res)
-  }
-
-   useEffect( () =>   {
-    console.log('render')
-    getAllCharacters('')
-  }, [api])
+  const {characters} = useContext(ApiContext)
+ 
   return (
     <>
       <Head>
@@ -75,9 +24,10 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet" />
       </Head>
       <Layout>
-        <Search setCharacters={setCharacters}/>
+        <Search/>
         <CharacterList
-        results={characters && characters.results}/>
+        results={characters && characters.results}
+        info={characters && characters.info}/>
       </Layout>
     </>
   )
