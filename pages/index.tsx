@@ -1,7 +1,10 @@
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { Layout } from '@/components/Layout'
 import { CharacterList } from '@/components/CharacteresList'
-//import Image from 'next/image'
+import { getAllCharacter } from 'services/CharacterService'
+import { AxiosResponse } from 'axios'
+import { CharacterListProps } from '@/components/CharacteresList/characterList.types'
 const mock = [{
   name: 'Rick',
   status: 'ativo',
@@ -47,6 +50,18 @@ const mock = [{
 }]
 
 export default function Home() {
+  const [characters, setCharacters] = useState<CharacterListProps | null>(null);
+
+  const getAllCharacters = async () => {
+    const res:CharacterListProps = await getAllCharacter()
+    console.log(res)
+    setCharacters(res)
+  }
+
+   useEffect( () =>   {
+    console.log('render')
+    getAllCharacters()
+  }, [])
   return (
     <>
       <Head>
@@ -60,7 +75,7 @@ export default function Home() {
       </Head>
       <Layout>
         <CharacterList
-        characters={mock}/>
+        results={characters && characters.results}/>
       </Layout>
     </>
   )

@@ -1,7 +1,7 @@
 export type CharacterListProps = {
-  characters: {
+  results: {
     name: string;
     status: string;
     image: string;
-  }[]
+  }[] | null
 }
