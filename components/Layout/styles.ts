@@ -10,6 +10,7 @@ export const Body = styled.main`
   footer {
     text-align: center;
     position: relative;
+    margin: 2rem;
     bottom: 0;
   }
 `;

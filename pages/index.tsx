@@ -5,6 +5,7 @@ import { CharacterList } from '@/components/CharacteresList'
 import { getAllCharacter } from 'services/CharacterService'
 import { AxiosResponse } from 'axios'
 import { CharacterListProps } from '@/components/CharacteresList/characterList.types'
+import { Search } from '@/components/Search'
 const mock = [{
   name: 'Rick',
   status: 'ativo',
@@ -74,6 +75,7 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet" />
       </Head>
       <Layout>
+        <Search/>
         <CharacterList
         results={characters && characters.results}/>
       </Layout>
