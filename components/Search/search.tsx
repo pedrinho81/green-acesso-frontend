@@ -23,7 +23,7 @@ export const Search: React.FC = () => {
         height={40}
         alt={'1'}
       />
-      <input onChange={handleChangeParam} name="name" type="text"
+      <input onChange={handleChangeParam} required name="name" type="text"
         placeholder="Ex: Smith" />
       <button type="submit">Buscar</button>
     </FormContainer>
