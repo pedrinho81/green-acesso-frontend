@@ -13,5 +13,6 @@ export type CharacterProps = {
         name: string
       }
     image: string;
+    error?: boolean;
  
 }

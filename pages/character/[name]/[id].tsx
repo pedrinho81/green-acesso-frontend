@@ -1,39 +1,42 @@
-import { useContext, useEffect } from "react";
-import { ApiContext } from "context/api";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { Layout } from "@/components/Layout";
 import { CharacterDetail } from "@/components/CharacterDetail";
 import Loading from "@/components/Loading";
-
+import { CharacterProps } from "./CharacterProps.types";
+import { useQuery } from "react-query";
+import { api } from "api/api";
 export default function Character() {
-  const { setId, characterDetail, isLoading } = useContext(ApiContext)
   const router = useRouter();
   const { id } = router.query;
-  useEffect(() => {
-    console.log(id)
-    if (typeof id === 'string') setId(id)
-  }, [router.query])
+  const {data, isLoading} = useQuery<CharacterProps>(['character-list', id], () => api.fetchDetail(id))
 
-
+  if(data?.error) {
+    return (
+      <h1 style={{
+        textAlign: 'center',
+        margin: '10rem 0'
+      }}>Olha só, acho temos alguém aqui que informou um id inválido diretamente pela url, não é mesmo? rsrs
+      </h1>
+    )
+  }
   return (
     <>
       <Head>
-        <title>{characterDetail ? characterDetail.name : 'Carregando...'}</title>
+        <title>{data ? data.name : 'Carregando...'}</title>
       </Head>
-      
       <Layout>
-        {!isLoading && !!characterDetail ? <CharacterDetail
-        key={characterDetail.id}
-        id={characterDetail.id}
-        gender={characterDetail.gender}
-        location={characterDetail.location}
-        name={characterDetail.name}
-        origin={characterDetail.origin}
-        species={characterDetail.species}
-        status={characterDetail.status}
-        type={characterDetail.type}
-        image={characterDetail.image}
+        {!isLoading && !!data ? <CharacterDetail
+        key={data.id}
+        id={data.id}
+        gender={data.gender}
+        location={data.location}
+        name={data.name}
+        origin={data.origin}
+        species={data.species}
+        status={data.status}
+        type={data.type}
+        image={data.image}
       />
         : <Loading/> }  
       </Layout>

@@ -5,7 +5,7 @@ import { FormContainer } from "./styles";
 import Image from "next/image";
 export const Search: React.FC = () => {
   const [value, setValue] = useState<string>('')
-  const { setPage, setSearch, isLoading } = useContext(ApiContext)
+  const { setPage, setSearch } = useContext(ApiContext)
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setPage(1)

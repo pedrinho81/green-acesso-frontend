@@ -4,13 +4,16 @@ import { Layout } from '@/components/Layout'
 import { CharacterList } from '@/components/CharacteresList'
 import { ApiContext } from 'context/api';
 import { Search } from '@/components/Search'
-
+import { useQuery } from 'react-query';
+import { CharacterListProps } from '@/components/CharacteresList/characterList.types';
+import { api } from 'api/api';
 
 export default function Home() {
-  const {characters, fetchData, isLoading} = useContext(ApiContext)
- useEffect(() => {
-  fetchData()
- }, [])
+  const {search, page} = useContext(ApiContext);
+
+  const {data, isLoading} = useQuery<CharacterListProps>(['character-list', page, search], () => api.fetchData(page, search))
+
+ console.log(data)
   return (
     <>
       <Head>
@@ -19,9 +22,10 @@ export default function Home() {
       <Layout>
         <Search/>
         <CharacterList
-        results={characters && characters.results}
-        info={characters && characters.info}
-        isLoading={isLoading}/>
+        results={data && data.results}
+        info={data && data.info}
+        isLoading={isLoading}
+        error={data?.error}/>
       </Layout>
     </>
   )

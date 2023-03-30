@@ -18,14 +18,14 @@ export const CharacterDetail: React.FC<CharacterProps> = (details: CharacterProp
           <thead>
             <tr>
               {data.map(([key]) => (
-                <th>{key.toLocaleUpperCase()}</th>
+                <th key={key}>{key.toLocaleUpperCase()}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             <tr>
               {data.map(([key, value]) => (
-                <td>
+                <td key={key}>
                   <tr>
                     {key.toLocaleUpperCase()}
                   </tr>

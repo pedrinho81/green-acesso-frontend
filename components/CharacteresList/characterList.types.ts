@@ -3,7 +3,7 @@ export type CharacterListProps = {
     pages: number
   prev: string,
   next: string
-  } | null,
+  } | null | undefined,
   results: {
     id: number;
     name: string;
@@ -13,7 +13,8 @@ export type CharacterListProps = {
     location: {
       name: string
     }
-  }[] | null 
+  }[] | null | undefined
   isLoading:boolean;
+  error?: boolean
 }
 
