@@ -1,16 +1,13 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import Head from 'next/head'
 import { Layout } from '@/components/Layout'
 import { CharacterList } from '@/components/CharacteresList'
-import { ParamsProps } from '@/components/Search/search.types'
-import { ApiContext, ApiProvider } from 'context/api';
-
-import { CharacterListProps } from '@/components/CharacteresList/characterList.types'
+import { ApiContext } from 'context/api';
 import { Search } from '@/components/Search'
 
 
 export default function Home() {
-  const {characters} = useContext(ApiContext)
+  const {characters, isLoading} = useContext(ApiContext)
  
   return (
     <>
@@ -27,7 +24,8 @@ export default function Home() {
         <Search/>
         <CharacterList
         results={characters && characters.results}
-        info={characters && characters.info}/>
+        info={characters && characters.info}
+        isLoading={isLoading}/>
       </Layout>
     </>
   )

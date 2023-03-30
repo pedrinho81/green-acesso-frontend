@@ -5,10 +5,12 @@ export const Container = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  
 `;
 
 export const Card = styled.div`
   position: relative;
+  cursor: pointer;
   color: #fff;
   background-color:  rgb(82 82 91);
   border: 1px solid #24a66b;
@@ -16,6 +18,11 @@ export const Card = styled.div`
   width: 17rem;
   margin: 1.5rem;
   padding: 1rem;
+  :hover {
+    transform:  scale(1.03);
+    transition: 0.3s;
+    border-color: #fff;
+  }
   h1 {
     font-size: 1.3rem;
     margin-bottom: 0.3rem;

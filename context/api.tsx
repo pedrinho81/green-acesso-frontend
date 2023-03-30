@@ -7,15 +7,17 @@ export const ApiContext = createContext<ApiContextProps>({} as ApiContextProps)
 export const ApiProvider = ({ children }: any) => {
   const [page, setPage] = useState<number>(1);
   const [name, setName] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const baseUrl = `https://rickandmortyapi.com/api/character/?page=${page}&name=${name}`;
   const [characters, setCharacters] = useState<CharacterListProps| null>(null);
   
   const fetchData = async () => {
+    setIsLoading(true);
     try {
       const res = await (await fetch(baseUrl)).json()
       console.log(!!res.error)
       console.log(res.results)
-      res.error ? toast.error(res.error)
+      res.error ? [toast.error(res.error), setCharacters(null)]
       : setCharacters(res)
       
       
@@ -23,10 +25,16 @@ export const ApiProvider = ({ children }: any) => {
     } catch (error) {
       toast.error('Ops, houve um erro inesperado.')
     }
+    setIsLoading(false)
   }
   useEffect(() => {
     fetchData()
   }, [name, page])
+
+  const resetFilters = () => {
+    setName('');
+    setPage(1);
+  }
   console.log(baseUrl)
   return(
     <ApiContext.Provider
@@ -35,7 +43,9 @@ export const ApiProvider = ({ children }: any) => {
         setPage,
         name,
         setName,
-        characters
+        characters,
+        resetFilters,
+        isLoading
       }}>
       {children}
     </ApiContext.Provider>

@@ -5,14 +5,11 @@ import { FormContainer } from "./styles";
 import Image from "next/image";
 export const Search:React.FC = () => {
   const [search, setSearch] = useState<string>('')
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const {setPage, setName} = useContext(ApiContext)
+  const {setPage, setName, name, isLoading} = useContext(ApiContext)
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    setIsLoading(true)
     event.preventDefault()
     setPage(1)
     setName(search)
-    setIsLoading(false)
   }
 
   const handleChangeParam = ({target}: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +24,7 @@ export const Search:React.FC = () => {
       alt={'1'}
       />
       
-      <input onChange={handleChangeParam} required name="name" type="text"
+      <input onChange={handleChangeParam} name="name" type="text"
       placeholder="Ex: Smith" />
 
       {isLoading ? <Loading/>

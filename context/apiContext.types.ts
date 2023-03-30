@@ -6,5 +6,7 @@ export type ApiContextProps = {
   setPage: Dispatch<SetStateAction<number>>,
   name: string,
   setName: Dispatch<SetStateAction<string>>,
-  characters: CharacterListProps | null
+  characters: CharacterListProps | null,
+  isLoading: boolean,
+  resetFilters: () => void;
 }

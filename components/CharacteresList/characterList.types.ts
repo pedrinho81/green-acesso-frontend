@@ -13,5 +13,6 @@ export type CharacterListProps = {
       name: string
     }
   }[] | null 
+  isLoading:boolean;
 }
 

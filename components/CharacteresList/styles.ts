@@ -12,6 +12,9 @@ export const Container = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  .error {
+    color: #ff0000;
+  }
 `;
 
 export const Card = styled.div`
@@ -21,4 +24,24 @@ export const Card = styled.div`
   width: 17rem;
   margin: 1.5rem;
   padding: 1rem;
+  `;
+
+  export const Error = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  button {
+    margin: 1rem;
+    padding: 1rem;
+    width: 70%;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #24a66b;
+    cursor: pointer;
+    align-self: center;
+    :hover {
+      opacity: 0.9;
+      transition: ease-in-out 0.21s
+    }
+  }
   `;
