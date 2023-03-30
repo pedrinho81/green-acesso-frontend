@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react"
-import { CharacterProps } from "@/components/Character/Character.types"
+import { CharacterProps } from "@/components/CharacterCard/CharacterCard.types"
 import { CharacterListProps } from "@/components/CharacteresList/characterList.types"
 export type ApiContextProps = {
   page: number,

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { CharacterProps } from './Character.types'
+import { CharacterProps } from './CharacterCard.types'
 import * as C from './styles'
 export const Character: React.FC<CharacterProps> = ({character}) => {
   const {name, image, location, status} = character
