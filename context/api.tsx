@@ -27,8 +27,10 @@ export const ApiProvider = ({ children }: any) => {
 
     } catch (error) {
       toast.error('Ops, houve um erro inesperado.')
+    } finally {
+      setIsLoading(false)
     }
-    setIsLoading(false)
+    
   }
   useEffect(() => {
     fetchData(id)
