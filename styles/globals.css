@@ -5,23 +5,40 @@
 	border: 0;
 	font-size: 100%;
 	font-family: "Archivo Black", arial, sans-serif;
+  outline: none;
 } 
 
- 
 body {
   color: #fff;
   background-color: rgb(63 63 70);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 1rem;
+  -moz-osx-font-smoothing: grayscale;  
 }
 
-textarea:focus, input:focus{
+html {
+  height: 100vh
+}
+
+button {
+  padding: 1rem;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #24a66b;
+  cursor: pointer;
+  
+}
+
+  button:hover {
+    opacity: 0.9;
+    transition: ease-in-out 0.21s
+}
+
+textarea:focus, input:focus, a {
   outline: none;
 }
 
 
   
-#__next {
+/* #__next {
   height: 100vh;
-}
+} */

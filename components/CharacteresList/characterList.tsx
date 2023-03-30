@@ -2,7 +2,7 @@
 import {useContext} from 'react'
 import * as C from "./styles"
 import { CharacterListProps } from "./characterList.types"
-import {Character} from '@/components/CharacterCard'
+import {CharacterCard} from '@/components/CharacterCard'
 import Loading from "../Loading"
 import { ApiContext } from "context/api"
 import { Pagination } from "../Pagination"
@@ -15,10 +15,11 @@ export const CharacterList:React.FC<CharacterListProps> = ({results, info, isLoa
     <C.Container>
       {isLoading ? <Loading/>
       : (
-        results && results.length > 0 ? results.map((character) => (
+        results ? results.map((character) => (
           <>
-          <Character character={character}/>
-          
+          <CharacterCard
+          key={character.id} 
+          character={character}/>
           </>
         ))
         : (

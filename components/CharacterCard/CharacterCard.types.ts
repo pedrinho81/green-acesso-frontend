@@ -1,6 +1,7 @@
 
-export type CharacterProps = {
+export type CharacterCardProps = {
   character: {
+    id: number,
     name: string;
     status: 'Dead' | 'Alive' | 'unknown';
     image: string;

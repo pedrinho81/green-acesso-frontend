@@ -5,6 +5,7 @@ export type CharacterListProps = {
   next: string
   } | null,
   results: {
+    id: number;
     name: string;
     status: "Dead" | "Alive" | "unknown";
     image: string;

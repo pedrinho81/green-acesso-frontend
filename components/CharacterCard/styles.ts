@@ -23,7 +23,7 @@ export const Card = styled.div`
     transition: 0.3s;
     border-color: #fff;
   }
-  h1 {
+   > h1 {
     font-size: 1.3rem;
     margin-bottom: 0.3rem;
     max-width: 80%;
@@ -32,14 +32,25 @@ export const Card = styled.div`
     font-size: 1rem;
     font-family: sans-serif, Arial
   }
-  img {
+  img  {
     border-radius: 100%;
   }
-  
+  button {
+    background-color: #fff;
+    color: #24a66b;
+    padding: 0.5rem !important;
+  }
   `;
 type AliveProps = {
   status: string
+};
+
+export const ContainerDetails = styled.div`
+display: flex;
+div {
+  flex: 1 0;
 }
+`;
 
 export const Alive = styled.div<AliveProps>`
 

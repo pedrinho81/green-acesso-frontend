@@ -1,5 +1,5 @@
-import { Character } from "./CharacterCard";
+import { CharacterCard } from "./CharacterCard";
 
 export {
-  Character
+  CharacterCard
 }
