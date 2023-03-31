@@ -1,11 +1,10 @@
 import { FormEvent, useState, useContext } from "react";
-import { ApiContext } from "context/api";
-import Loading from "../Loading";
+import { AppContext } from "context/app";
 import { FormContainer } from "./styles";
 import Image from "next/image";
 export const Search: React.FC = () => {
   const [value, setValue] = useState<string>('')
-  const { setPage, setSearch } = useContext(ApiContext)
+  const { setPage, setSearch } = useContext(AppContext)
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setPage(1)

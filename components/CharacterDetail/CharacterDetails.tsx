@@ -4,15 +4,35 @@ import { CharacterCard } from '@/components/CharacterCard'
 import { Container, Table } from "./styles"
 import Link from "next/link";
 export const CharacterDetail: React.FC<CharacterProps> = (details: CharacterProps) => {
-  const router = useRouter();
-  const { id } = router.query;
+
+  function getDefault() {
+    return 'N/A';
+  }
+
+  function getValue(value: any) {
+    switch (typeof value) {
+      case 'object':
+        return value.name || getDefault();
+      case 'boolean':
+        return value ? 'Yes' : 'No';
+      case 'string':
+        return value || getDefault();
+      case 'number':
+        return value || getDefault();
+      default:
+        return getDefault();
+    }
+  }
   const data = Object.entries(details)
   return (
     <Container>
       <h1>
         {details.name}
       </h1>
-      <CharacterCard character={details} />
+      <CharacterCard
+        character={details}
+        isFavorite={details.isFavorite}
+      />
       <div>
         <Table>
           <thead>
@@ -26,12 +46,8 @@ export const CharacterDetail: React.FC<CharacterProps> = (details: CharacterProp
             <tr>
               {data.map(([key, value]) => (
                 <td key={key}>
-                  <tr>
-                    {key.toLocaleUpperCase()}
-                  </tr>
-                  {typeof value === 'object' ?
-                    value.name
-                    : value ? value : 'N/A'}
+                  <p>{key.toLocaleUpperCase()}</p>
+                  {getValue(value)}
                 </td>
               ))}
             </tr>

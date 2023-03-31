@@ -1,9 +1,9 @@
 import { useContext } from "react"
 import { Container } from "./styles"
 import { PaginationProps } from "./pagination.types"
-import { ApiContext } from "context/api"
+import { AppContext } from "context/app"
 export const Pagination:React.FC<PaginationProps> = ({info}) => {
-    const {page, setPage} = useContext(ApiContext)
+    const {page, setPage} = useContext(AppContext)
     const toStartPage = () => {
       setPage(1)
     }

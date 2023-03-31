@@ -1,20 +1,25 @@
-import Image from 'next/image'
+import { useContext } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+import { AppContext } from 'context/app'
 import { CharacterCardProps } from './CharacterCard.types'
 import * as C from './styles'
-export const CharacterCard: React.FC<CharacterCardProps> = ({ character} ) => {
-  const { name, image, location, status, id } = character
+import { IoStarOutline } from 'react-icons/io5'
+export const CharacterCard: React.FC<CharacterCardProps> = ({ character, isFavorite} ) => {
+  const {handleToggleFavorite} = useContext(AppContext)
+  const { name, image, location, id } = character
   return (
     <C.Card>
-      <h1>{name}</h1>
+      <h1>{name}</h1> 
+      <C.Star 
+      onClick={() => handleToggleFavorite(id)}
+      isFavorite={isFavorite}><IoStarOutline/></C.Star>
       <Image src={image}
         alt={name}
         width={270}
         height={250}
-      />
-      {status !== 'unknown' &&
-        <C.Alive status={status}>{status}</C.Alive>
-      }
+        />
+      
       <C.ContainerDetails> 
         <div>
           <span>Última localização:</span>

@@ -28,6 +28,8 @@ export const Container = styled.div`
     display: block;
     color: #fff;
     text-align: center;
+    margin-right: 1rem;
+
     margin-top: 1rem;
     @media screen and (min-width: 1140px) {
       text-align: end;
@@ -42,9 +44,10 @@ export const Container = styled.div`
 `;
 
 export const Table = styled.table`
-   border-collapse: collapse;
+  border-collapse: collapse;
   width: 100%;
   max-width: 1000px;
+  margin-right: 1rem;
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 1rem;
@@ -58,7 +61,9 @@ export const Table = styled.table`
     text-align: left;
     background-color:  rgb(82 82 91);
     height: 8;
-
+        p {
+          display: none;
+        }
   }
 
   @media screen and (max-width: 1140px) {
@@ -76,9 +81,10 @@ export const Table = styled.table`
           margin-right: 0.4rem;
 
       td {
-        tr {
+        p {
+          display: block;
           color: #24a66b;;
-
+          font-size: 0.8rem
         }
       }
     }

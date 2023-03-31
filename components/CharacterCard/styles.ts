@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { IoStarOutline, IoStarSharp } from "react-icons/io5";
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -7,6 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   
 `;
+
 
 export const Card = styled.div`
   position: relative;
@@ -41,9 +42,6 @@ export const Card = styled.div`
     padding: 0.5rem !important;
   }
   `;
-type AliveProps = {
-  status: string
-};
 
 export const ContainerDetails = styled.div`
 display: flex;
@@ -51,16 +49,32 @@ div {
   flex: 1 0;
 }
 `;
+interface StarProps {
+  isFavorite: boolean;
+}
+export const Star = styled.div<StarProps>`
+  position: absolute;
+  top: 0.7rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  cursor: cell!important;
+  background-color: ${({ isFavorite }) => (isFavorite ? "#f9a825" : "#e0e0e0")};
+  color: ${({ isFavorite }) => (isFavorite ? "#fff" : "#333")};
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 
-export const Alive = styled.div<AliveProps>`
+  &:hover {
+    background-color: ${({ isFavorite }) =>
+    isFavorite ? "#f4c244" : "#ccc"};
+  }
 
-        position: absolute;
-        top: 0.7rem;
-        right: 1rem;
-        border: 1px solid black;
-        padding: 0.2em;
-        border-radius: 5px;
-        background: ${props => props.status === 'Alive' ? '#24a66b' : 'red'};
-      
-
+  &:active {
+    transform: scale(0.9);
+  }
 `;

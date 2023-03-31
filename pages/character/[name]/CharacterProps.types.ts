@@ -1,6 +1,7 @@
 export type CharacterProps = {
     id: number;
     name: string;
+    isFavorite: boolean;
     status: 'Dead' | 'Alive' | 'unknown';
     species: string;
     type: string;

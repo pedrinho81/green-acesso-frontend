@@ -7,6 +7,7 @@ export type CharacterListProps = {
   results: {
     id: number;
     name: string;
+    isFavorite: boolean;
     status: "Dead" | "Alive" | "unknown";
     image: string;
     species: string

@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import Head from "next/head";
 import { Layout } from "@/components/Layout";
 import { CharacterDetail } from "@/components/CharacterDetail";
@@ -6,9 +8,12 @@ import Loading from "@/components/Loading";
 import { CharacterProps } from "./CharacterProps.types";
 import { useQuery } from "react-query";
 import { api } from "api/api";
+import { AppContext } from "context/app";
 export default function Character() {
   const router = useRouter();
   const { id } = router.query;
+  const { favorites } = useContext(AppContext);
+
   const {data, isLoading} = useQuery<CharacterProps>(['character-list', id], () => api.fetchDetail(id))
 
   if(data?.error) {
@@ -16,7 +21,7 @@ export default function Character() {
       <h1 style={{
         textAlign: 'center',
         margin: '10rem 0'
-      }}>Olha só, acho temos alguém aqui que informou um id inválido diretamente pela url, não é mesmo? rsrs
+      }}>Nada por aqui... <Link href={'/'}><button>Voltar para a Home</button></Link> 
       </h1>
     )
   }
@@ -37,6 +42,7 @@ export default function Character() {
         status={data.status}
         type={data.type}
         image={data.image}
+        isFavorite={favorites.includes(Number(id))}
       />
         : <Loading/> }  
       </Layout>

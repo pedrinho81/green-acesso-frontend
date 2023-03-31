@@ -3,6 +3,7 @@ export type CharacterCardProps = {
   character: {
     id: number,
     name: string;
+    
     status: 'Dead' | 'Alive' | 'unknown';
     image: string;
     species: string
@@ -10,4 +11,5 @@ export type CharacterCardProps = {
       name: string
     }
   }
+  isFavorite: boolean;
 }
