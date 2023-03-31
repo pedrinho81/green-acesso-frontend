@@ -21,7 +21,7 @@ export default function Character() {
       <h1 style={{
         textAlign: 'center',
         margin: '10rem 0'
-      }}>Nada por aqui... <Link href={'/'}><button>Voltar para a Home</button></Link> 
+      }}>Ora ora, nada por aqui... :D <Link href={'/'}><button>Voltar para a Home</button></Link> 
       </h1>
     )
   }

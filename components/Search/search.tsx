@@ -4,7 +4,7 @@ import { FormContainer } from "./styles";
 import Image from "next/image";
 export const Search: React.FC = () => {
   const [value, setValue] = useState<string>('')
-  const { setPage, setSearch } = useContext(AppContext)
+  const { setPage, setSearch, search, resetFilters } = useContext(AppContext)
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setPage(1)
@@ -22,8 +22,9 @@ export const Search: React.FC = () => {
         height={40}
         alt={'1'}
       />
-      <input onChange={handleChangeParam} required name="name" type="text"
+      <input autoComplete="off" onChange={handleChangeParam} value={value} required name="name" type="text"
         placeholder="Ex: Smith" />
+        {value && <button className="reset" onClick={() => [resetFilters(), setValue('')]} type="button">Limpar</button>} 
       <button type="submit">Buscar</button>
     </FormContainer>
   )

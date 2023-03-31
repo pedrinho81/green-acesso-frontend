@@ -20,7 +20,10 @@ export const FormContainer = styled.form`
     border-radius: 4px;
     color: #fff;
   }
-  button {
+  .reset {
+    background-color: transparent !important;
+  }
+  button:nth-child(2) {
     width: 6rem;
     height: 3.3rem;
     border-radius: 4px;

@@ -11,7 +11,6 @@ export const Container = styled.div`
 
 export const Card = styled.div`
   position: relative;
-  cursor: pointer;
   color: #fff;
   background-color:  rgb(82 82 91);
   border: 1px solid #24a66b;
@@ -47,6 +46,7 @@ export const ContainerDetails = styled.div`
 display: flex;
 div {
   flex: 1 0;
+  margin-right: 0.3rem;
 }
 `;
 interface StarProps {
