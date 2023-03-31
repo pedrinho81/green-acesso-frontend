@@ -14,7 +14,7 @@ export default function Character() {
   const { id } = router.query;
   const { favorites } = useContext(AppContext);
 
-  const {data, isLoading} = useQuery<CharacterProps>(['character-list', id], () => api.fetchDetail(id))
+  const {data, isLoading} = useQuery<CharacterProps>(['character-detail', id], () => api.fetchDetail(id))
 
   if(data?.error) {
     return (

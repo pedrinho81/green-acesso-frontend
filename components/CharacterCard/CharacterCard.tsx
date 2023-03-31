@@ -20,7 +20,7 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character, isFavor
         height={250}
         placeholder='blur'
         unoptimized
-        blurDataURL='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='
+        blurDataURL='https://abstackwp.khingars.com/wp-content/uploads/2021/09/image-blur-placeholder.png'
       />
 
       <C.ContainerDetails>
