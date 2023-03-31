@@ -36,8 +36,6 @@ export const ApiProvider = ({ children }: any) => {
     [setFavorites]
   );
     
-    console.log(favorites)
-
 
   const resetFilters = () => {
     setSearch('');
