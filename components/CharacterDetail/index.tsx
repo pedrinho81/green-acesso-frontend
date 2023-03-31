@@ -1,3 +1,3 @@
-import { CharacterDetail } from "./CharacterDetails";
+import { CharacterDetail } from "./characterDetails";
 
 export {CharacterDetail}

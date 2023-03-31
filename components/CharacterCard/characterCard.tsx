@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { AppContext } from 'context/app'
-import { CharacterCardProps } from './CharacterCard.types'
+import { CharacterCardProps } from './characterCard.types'
 import * as C from './styles'
 import { IoStarOutline } from 'react-icons/io5'
 export const CharacterCard: React.FC<CharacterCardProps> = ({ character, isFavorite }) => {
