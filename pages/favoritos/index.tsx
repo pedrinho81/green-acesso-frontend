@@ -3,19 +3,20 @@ import { useContext } from "react";
 import { api } from "api/api";
 import Link from "next/link";
 import { useQuery } from "react-query";
-import { CharacterProps } from "pages/character/[name]/CharacterProps.types";
+import { CharacterProps } from "@/components/CharacterDetail/CharacterProps.types";
 import { CharacterList } from "@/components/CharacteresList";
 import { AppContext } from "context/app";
-import { CharacterListProps } from "@/components/CharacteresList/characterList.types";
 export default function Favorites() {
+
   const { favorites } = useContext(AppContext)
 
+  const { data, isLoading } = useQuery<CharacterProps[]>(['favorite-characts'], () => api.getFavorites(favorites))
 
-  const { data, isLoading, error } = useQuery<CharacterProps[]>(['favorite-characts'], () => api.getFavorites(favorites))
   const hasFavorites = (data:any) => {
     let verify = data?.length < 1 || data?.info
     return !verify
   }
+
   return (
     <Layout className="favoritos">
       {hasFavorites(data)  ? <CharacterList

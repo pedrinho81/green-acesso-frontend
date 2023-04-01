@@ -1,5 +1,4 @@
-import { useRouter } from "next/router";
-import { CharacterProps } from "pages/character/[name]/CharacterProps.types"
+import { CharacterProps } from "./CharacterProps.types"
 import { CharacterCard } from '@/components/CharacterCard'
 import { Container, Table } from "./styles"
 import Link from "next/link";

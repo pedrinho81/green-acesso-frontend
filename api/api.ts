@@ -1,6 +1,6 @@
 import {toast} from 'react-toastify'
 import { CharacterListProps } from "@/components/CharacteresList/characterList.types";
-import { CharacterProps } from 'pages/character/[name]/CharacterProps.types';
+import { CharacterProps } from '@/components/CharacterDetail/CharacterProps.types';
 let baseUrl = `https://rickandmortyapi.com/api/character/`;
 
 const fetchData = async (page: number, search: string):Promise<CharacterListProps> => {

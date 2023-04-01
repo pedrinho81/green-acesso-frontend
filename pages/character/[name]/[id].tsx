@@ -5,7 +5,7 @@ import Head from "next/head";
 import { Layout } from "@/components/Layout";
 import { CharacterDetail } from "@/components/CharacterDetail";
 import Loading from "@/components/Loading";
-import { CharacterProps } from "./CharacterProps.types";
+import { CharacterProps } from "../../../components/CharacterDetail/CharacterProps.types";
 import { useQuery } from "react-query";
 import { api } from "api/api";
 import { AppContext } from "context/app";
