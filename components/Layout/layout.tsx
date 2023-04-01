@@ -4,6 +4,13 @@ import { LayoutProps } from "./layout.types"
 import { Search } from "../Search"
 import * as L from "./styles"
 export const Layout: React.FC<LayoutProps> = ({ children, className }) => {
+  const navLinks = [{
+    name: 'Home',
+    href: '/'
+  }, {
+    name: 'Favoritos',
+    href: '/favoritos'
+  }]
   return (
     <>
       <L.Body>
@@ -17,17 +24,13 @@ export const Layout: React.FC<LayoutProps> = ({ children, className }) => {
           </L.Logo>
           <Search />
           <L.MainNav>
-            <L.NavLi >
-              <Link href={'/'}>
-                <L.NavLink active={className === 'home'}  >Home</L.NavLink>
-              </Link>
-
-            </L.NavLi>
-            <L.NavLi >
-              <Link href={'/favoritos'}>
-                <L.NavLink active={className === 'favoritos'}>Favoritos</L.NavLink>
-              </Link>
-            </L.NavLi>
+            {navLinks.map(({ name, href }) => (
+              <L.NavLi key={name}>
+                <Link href={href}>
+                  <L.NavLink active={className === name} >{name}</L.NavLink>
+                </Link>
+              </L.NavLi>
+            ))}
           </L.MainNav>
         </L.Bar>
         <main>{children}</main>

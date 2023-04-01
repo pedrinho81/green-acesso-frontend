@@ -58,7 +58,7 @@ export const Table = styled.table`
   }
   td {
     padding: 1rem;
-    text-align: left;
+    text-align: start;
     background-color:  rgb(82 82 91);
     height: 8;
         p {
@@ -67,18 +67,14 @@ export const Table = styled.table`
   }
 
   @media screen and (max-width: 1140px) {
-   // display: block;
-   width: 90%;
-    //overflow: hidden;
+   width: 80%;
     margin: 0 auto;
     thead {
       display: none;
     }
     tr {
-     // border-bottom: 1px solid #ddd;
       display: flex;
       flex-direction: column;
-          margin-right: 0.4rem;
 
       td {
         p {

@@ -18,7 +18,7 @@ export default function Home() {
       <Head>
         <title>Página inicial</title>
       </Head>
-      <Layout className='home'>
+      <Layout className='Home'>
         <CharacterList
         results={data && data.results}
         info={data && data.info}

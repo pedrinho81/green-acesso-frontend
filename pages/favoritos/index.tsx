@@ -18,7 +18,7 @@ export default function Favorites() {
   }
 
   return (
-    <Layout className="favoritos">
+    <Layout className="Favoritos">
       {hasFavorites(data)  ? <CharacterList
           results={data}
           isLoading={isLoading}
