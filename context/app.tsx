@@ -3,7 +3,7 @@ import { AppContextProps } from "./appContext.types";
 
 export const AppContext = createContext<AppContextProps>({} as AppContextProps)
 
-export const ApiProvider = ({ children }: any) => {
+export const ApiProvider = ({ children }:  { children: React.ReactNode }) => {
   const [page, setPage] = useState<number>(1);
   const [search, setSearch] = useState<string>('');
 
