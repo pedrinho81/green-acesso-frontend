@@ -9,17 +9,21 @@ import { Pagination } from "../Pagination"
 
 export const CharacterList: React.FC<CharacterListProps> = ({ results, info, isLoading, error }) => {
   const { resetFilters, favorites } = useContext(AppContext);
+
   return (
     <>
       <C.Title>Personagens</C.Title>
       <C.Container>
         {isLoading ? <Loading />
-          : (results && results.map((character) => (
+          : (Array.isArray(results) ? results.map((character) => (
             <CharacterCard
               key={character.id}
               character={character}
               isFavorite={favorites.includes(character.id)} />
-          ))
+          )) :  results && <CharacterCard
+          key={results.id}
+          character={results}
+          isFavorite={favorites.includes(results.id)} />
           )}
 
         {error && <C.Error>

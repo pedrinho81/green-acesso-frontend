@@ -6,8 +6,8 @@ export const FormContainer = styled.form`
   border: 1px solid;
   border-radius: 5px;
   text-align: center;
-  width: 100%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 0 ;
   max-width: 40rem;
   border-color: #fff;
   

@@ -1,5 +1,5 @@
 export type CharacterListProps = {
-  info: {
+  info?: {
     pages: number
   prev: string,
   next: string
@@ -14,7 +14,18 @@ export type CharacterListProps = {
     location: {
       name: string
     }
-  }[] | null | undefined
+  }[] | null | undefined | 
+  {
+    id: number;
+    name: string;
+    isFavorite: boolean;
+    status: "Dead" | "Alive" | "unknown";
+    image: string;
+    species: string
+    location: {
+      name: string
+    }
+  }
   isLoading:boolean;
   error?: boolean
 }

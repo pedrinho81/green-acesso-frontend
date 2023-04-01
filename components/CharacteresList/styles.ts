@@ -12,6 +12,7 @@ export const Container = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+
   gap: 1.5rem;
   .error {
     color: #ff0000;

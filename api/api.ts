@@ -25,7 +25,20 @@ const fetchDetail = async (id: string | string[] | undefined):Promise<CharacterP
 
 }
 
+const getFavorites = async (ids: number[]):Promise<CharacterProps[]> => {
+  try {      
+    if(!ids) return []
+    const res = await (await fetch(`${baseUrl}${ids}`)).json()
+    return res
+  } catch (error) {
+    toast.error('Ops, houve um erro inesperado.')
+    throw(error)
+  }
+
+}
+
 export const api = {
   fetchData,
-  fetchDetail
+  fetchDetail,
+  getFavorites
 }

@@ -30,7 +30,7 @@ export default function Character() {
       <Head>
         <title>{data ? data.name : 'Carregando...'}</title>
       </Head>
-      <Layout>
+      <Layout className="favoritos">
         {!isLoading && !!data ? <CharacterDetail
         key={data.id}
         id={data.id}

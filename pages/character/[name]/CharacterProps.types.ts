@@ -15,5 +15,5 @@ export type CharacterProps = {
       }
     image: string;
     error?: boolean;
- 
+    info?: boolean;
 }

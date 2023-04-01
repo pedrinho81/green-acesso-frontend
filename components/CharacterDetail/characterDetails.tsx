@@ -55,7 +55,7 @@ export const CharacterDetail: React.FC<CharacterProps> = (details: CharacterProp
         </Table>
         <Link href={'/'}>
           <button>
-            voltar
+            Voltar
           </button>
         </Link>
       </div>

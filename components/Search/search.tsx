@@ -2,11 +2,15 @@ import { FormEvent, useState, useContext } from "react";
 import { AppContext } from "context/app";
 import { FormContainer } from "./styles";
 import Image from "next/image";
+import { useRouter } from "next/router";
 export const Search: React.FC = () => {
   const [value, setValue] = useState<string>('')
   const { setPage, setSearch, search, resetFilters } = useContext(AppContext)
+  const router = useRouter()
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+
     event.preventDefault()
+    router.push('/')
     setPage(1)
     setSearch(value)
   }
