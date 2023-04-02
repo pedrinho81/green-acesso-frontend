@@ -25,6 +25,7 @@ export const Search: React.FC = () => {
         width={40}
         height={40}
         alt={'1'}
+        priority
       />
       <input autoComplete="off" onChange={handleChangeParam} value={value} required name="name" type="text"
         placeholder="Ex: Smith" />

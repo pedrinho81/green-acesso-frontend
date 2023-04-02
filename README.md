@@ -1,38 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Green Acesso
+## Teste de front-end
 
-First, run the development server:
+O projeto está em funciomento em; https://green-acesso.netlify.app
+
+Ou
+#### Rodando localmente
+### Clone o projeto
+Clone o projeto
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+  $ git clone git@github.com:pedrinho81/green-acesso-frontend.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Vá até o diretório onde o projeto se encontra e utilize os seguintes comandos
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+  $ npm install ou $ yarn install =>  Instalar dependências
+  $ npm dev ou $ yarn dev =>  Rodar o projeto em um servidor local no seu navegador (localhost:3000)
+```
+## Introdução
+Este documento descreve a documentação do projeto de teste técnico de frontend React, que tem como objetivo consumir a API do "Rick and Morty". O projeto foi desenvolvido com base nas especificações fornecidas pela Green Acesso.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Descrição do Projeto:
+A aplicação desenvolvida tem a seguinte estrutura:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   - Página inicial: exibe os personagens principais da série. Cada personagem é representado por uma imagem, seu nome e sua última localização, ao clicar no botão de 'Detalhes' será redirecionado para uma página com informações do personagem, como nome, espécie, origem, localização, entre outras, ao clicar no ícone de estrela no canto superior direito adicionará ou removerá o personagem a uma lista de personagens favoritos.
+   - Página de Favoritos: exibe uma lista com os personagens definidos anteriormente como favoritos.
+   - Página de detalhes: exibe o card de personagem e uma tabela com mais informações sobre o mesmo, onde é possível copiar os dados da mesma para seu clipboard ao clicar em seu respectivo campo.
+## Funcionalidades
+- Paginação;
+- Busca por nome do personagem
+- Opção para favoritar o personagem na página de listagem e detalhes;
+- Página com filtro de personagens favoritos;
+- Copiar texto dos dados do personagens na sua página de detalhes;
+- Responsividade;
 
-## Learn More
+## Tecnologias usadas
+- Next.js 
+- React-query
+- Styled-components
+- Typescript
+- React-toastify
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Considerações Finais:
+O projeto foi desenvolvido com sucesso, atingindo todos os objetivos principais propostos pelo cliente. A aplicação é responsiva, adaptando-se a diferentes tamanhos de tela, e possui uma interface atraente e intuitiva. As informações obtidas da API do "Rick and Morty" são exibidas de forma clara e organizada, permitindo que o usuário tenha uma experiência agradável ao utilizar a aplicação.

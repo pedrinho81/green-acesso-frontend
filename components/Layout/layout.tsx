@@ -19,6 +19,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, className }) => {
             <Image
               alt="Green Acesso"
               src={'/logo.webp'}
+              priority
               width={150}
               height={40} />
           </L.Logo>
