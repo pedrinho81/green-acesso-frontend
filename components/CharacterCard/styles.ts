@@ -11,17 +11,18 @@ export const Container = styled.div`
 
 export const Card = styled.div`
   position: relative;
-  color: #fff;
-  background-color:  rgb(82 82 91);
-  border: 1px solid #24a66b;
+  color: var(--white);
+  background-color:  var(--medium-dark);
+  border: 1px solid var(--green);
   border-radius: 15px;
   width: 17rem;
   margin: 1.5rem;
   padding: 1rem;
+  padding-bottom: 0.5rem;
   :hover {
     transform:  scale(1.03);
     transition: 0.3s;
-    border-color: #fff;
+    border-color: var(--white);
   }
    > h1 {
     font-size: 1.3rem;
@@ -36,8 +37,8 @@ export const Card = styled.div`
     border-radius: 100%;
   }
   button {
-    background-color: #fff;
-    color: #24a66b;
+    background-color: var(--white);
+    color: var(--green);
     padding: 0.5rem !important;
   }
   `;
@@ -64,14 +65,14 @@ export const Star = styled.div<StarProps>`
   font-size: 1.5rem;
   border-radius: 50%;
   cursor: cell!important;
-  background-color: ${({ isFavorite }) => (isFavorite ? "#f9a825" : "#e0e0e0")};
-  color: ${({ isFavorite }) => (isFavorite ? "#fff" : "#333")};
+  background-color: ${({ isFavorite }) => (isFavorite ? "var(--gold)" : "var(--white)")};
+  color: ${({ isFavorite }) => (isFavorite ? "var(--white)" : "var(--dark)")};
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
     background-color: ${({ isFavorite }) =>
-    isFavorite ? "#f4c244" : "#ccc"};
+    isFavorite ? "var(--light-gold)" : "var(--gray)"};
   }
 
   &:active {

@@ -7,6 +7,7 @@ import { api } from "api/api";
 import { useQuery } from "react-query";
 import { CharacterProps } from "@/components/CharacterDetail/CharacterProps.types";
 import { CharacterList } from "@/components/CharacteresList";
+import { ErrorMessage } from "@/components/ErrorMessage";
 export default function Favorites() {
 
   const { favorites } = useContext(AppContext)
@@ -29,12 +30,7 @@ export default function Favorites() {
           isLoading={isLoading}
         /> 
       :
-      <h1 style={{
-        textAlign: 'center',
-        margin: '10rem 0'
-      }}>Ora ora, nada por aqui... :D <Link href={'/'}><button>Voltar para a Home</button></Link>
-      </h1> 
-         
+      <ErrorMessage message="Você não tem personagens favoritos... :("/>
       }
     </Layout>
     </>

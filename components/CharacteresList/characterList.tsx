@@ -6,6 +6,7 @@ import { CharacterCard } from '@/components/CharacterCard'
 import Loading from "../Loading"
 import { AppContext } from "context/app"
 import { Pagination } from "../Pagination"
+import { ErrorMessage } from '../ErrorMessage'
 
 export const CharacterList: React.FC<CharacterListProps> = ({ results, info, isLoading, error }) => {
   const { resetFilters, favorites } = useContext(AppContext);
@@ -26,10 +27,8 @@ export const CharacterList: React.FC<CharacterListProps> = ({ results, info, isL
           isFavorite={favorites.includes(results.id)} />
           )}
 
-        {error && <C.Error>
-          <h1 className="error">Não há resultados para sua busca :( </h1>
-          <button onClick={resetFilters}>Voltar</button>
-        </C.Error>}
+        {error && <ErrorMessage
+        message={'Não há resultados para sua busca :('}/>}
 
       </C.Container>
       {info && <Pagination info={info} />}

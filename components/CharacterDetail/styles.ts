@@ -27,7 +27,7 @@ export const Container = styled.div`
 
   > div > a {
     display: block;
-    color: #fff;
+    color: var(--white);
     text-align: center;
     margin-right: 1rem;
 
@@ -53,7 +53,7 @@ export const Table = styled.table`
   overflow: hidden;
   margin-bottom: 1rem;
   th {
-    background-color: green;
+    background-color: var(--green);
     height: 15%;
   padding: 0.5rem;
   }
@@ -64,7 +64,7 @@ export const Table = styled.table`
     max-width: 10rem;
     padding: 1rem;
     text-align: start;
-    background-color:  rgb(82 82 91);
+    background-color:  var(--medium-dark);
     height: 8;
         p {
           display: none;
@@ -87,7 +87,7 @@ export const Table = styled.table`
         max-width: 100%;
         p {
           display: block;
-          color: #24a66b;;
+          color: var(--green);;
           font-size: 0.8rem
         }
       }

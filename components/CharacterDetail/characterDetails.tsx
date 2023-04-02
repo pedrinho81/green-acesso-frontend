@@ -15,6 +15,7 @@ export const CharacterDetail: React.FC<CharacterProps> = (details: CharacterProp
       <CharacterCard
         character={details}
         isFavorite={details.isFavorite}
+        noButtonDetails={true}
       />
       <div>
         <Table>

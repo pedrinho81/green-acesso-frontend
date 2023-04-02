@@ -12,4 +12,5 @@ export type CharacterCardProps = {
     }
   }
   isFavorite: boolean;
+  noButtonDetails?: boolean
 }

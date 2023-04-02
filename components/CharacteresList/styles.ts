@@ -14,15 +14,12 @@ export const Container = styled.div`
   justify-content: center;
 
   gap: 1.5rem;
-  .error {
-    color: #ff0000;
-  }
 `;
 
 export const Card = styled.div`
-  color: #fff;
-  background-color:  rgb(82 82 91);
-  border: 1px solid #24a66b;
+  color: var(--white);
+  background-color:  var(--medium-dark);
+  border: 1px solid var(--green);
   width: 17rem;
   margin: 1.5rem;
   padding: 1rem;
@@ -37,8 +34,8 @@ export const Card = styled.div`
     padding: 1rem;
     width: 70%;
     border-radius: 5px;
-    color: #fff;
-    background-color: #24a66b;
+    color: var(--white);
+    background-color: var(--green);
     cursor: pointer;
     align-self: center;
     :hover {

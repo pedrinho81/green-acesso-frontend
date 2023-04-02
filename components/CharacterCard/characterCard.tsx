@@ -5,7 +5,7 @@ import { AppContext } from 'context/app'
 import { CharacterCardProps } from './characterCard.types'
 import * as C from './styles'
 import { IoStarOutline } from 'react-icons/io5'
-export const CharacterCard: React.FC<CharacterCardProps> = ({ character, isFavorite }) => {
+export const CharacterCard: React.FC<CharacterCardProps> = ({ character, isFavorite, noButtonDetails }) => {
   const { handleToggleFavorite } = useContext(AppContext)
   const { name, image, location, id } = character
   return (
@@ -28,9 +28,11 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ character, isFavor
           <span>Última localização:</span>
           <h1>{location?.name}</h1>
         </div>
+        {!noButtonDetails && 
         <Link color='black' href={`/character/${name}/${id}`}>
           <button>Detalhes</button>
-        </Link>
+        </Link>}
+        
       </C.ContainerDetails>
     </C.Card>
   )

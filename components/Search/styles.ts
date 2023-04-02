@@ -9,7 +9,7 @@ export const FormContainer = styled.form`
   width: 90%;
   margin: 0 ;
   max-width: 40rem;
-  border-color: #fff;
+  border-color: var(--white);
   
   input {
     padding-left: 1rem;
@@ -18,7 +18,7 @@ export const FormContainer = styled.form`
     width: 100%;
     height: 2rem;
     border-radius: 4px;
-    color: #fff;
+    color: var(--white);
   }
   .reset {
     background-color: transparent !important;
@@ -27,8 +27,8 @@ export const FormContainer = styled.form`
     width: 6rem;
     height: 3.3rem;
     border-radius: 4px;
-    color: #fff;
-    background-color: #24a66b;
+    color: var(--white);
+    background-color: var(--green);
     cursor: pointer;
     :hover {
       opacity: 0.9;

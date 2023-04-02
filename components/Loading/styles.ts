@@ -21,7 +21,7 @@ export const LoadingWrapper = styled.div`
   justify-content: center;
   h3{
     font-size: 1.3rem;
-    color: #24a66b;
+    color: var(--green);
     height: 1.5rem;
     animation: ${BounceAnimation} 0.5s alternate-reverse infinite;
   }
@@ -30,7 +30,7 @@ type dotProps = {
   delay: string
 }
 export const Dot = styled.div<dotProps>`
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 50%;
   width: 0.6rem;
   height: 0.6rem;

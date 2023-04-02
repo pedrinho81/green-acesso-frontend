@@ -9,6 +9,7 @@ import { CharacterProps } from "../../../components/CharacterDetail/CharacterPro
 import { useQuery } from "react-query";
 import { api } from "api/api";
 import { AppContext } from "context/app";
+import { ErrorMessage } from "@/components/ErrorMessage";
 export default function Character() {
   const router = useRouter();
   const { id } = router.query;
@@ -18,11 +19,7 @@ export default function Character() {
 
   if(data?.error) {
     return (
-      <h1 style={{
-        textAlign: 'center',
-        margin: '10rem 0'
-      }}>Ora ora, nada por aqui... :D <Link href={'/'}><button>Voltar para a Home</button></Link> 
-      </h1>
+      <ErrorMessage message="Ora Ora, nada por aqui... :D"/>
     )
   }
   return (
