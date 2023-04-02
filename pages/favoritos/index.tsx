@@ -1,11 +1,12 @@
-import { Layout } from "@/components/Layout";
 import { useContext } from "react";
-import { api } from "api/api";
+import Head from "next/head";
 import Link from "next/link";
+import { AppContext } from "context/app";
+import { Layout } from "@/components/Layout";
+import { api } from "api/api";
 import { useQuery } from "react-query";
 import { CharacterProps } from "@/components/CharacterDetail/CharacterProps.types";
 import { CharacterList } from "@/components/CharacteresList";
-import { AppContext } from "context/app";
 export default function Favorites() {
 
   const { favorites } = useContext(AppContext)
@@ -18,6 +19,10 @@ export default function Favorites() {
   }
 
   return (
+    <>
+    <Head>
+        <title>Favoritos</title>
+      </Head>
     <Layout className="Favoritos">
       {hasFavorites(data)  ? <CharacterList
           results={data}
@@ -31,7 +36,7 @@ export default function Favorites() {
       </h1> 
          
       }
-
     </Layout>
+    </>
   )
 }

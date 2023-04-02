@@ -5,7 +5,7 @@ const pulsate = keyframes`
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(0.9);
   }
   100% {
     transform: scale(1);
@@ -24,6 +24,7 @@ export const Container = styled.div`
   div:nth-child(2) {
     animation: ${pulsate} 2s ease-in-out infinite;
   }
+
   > div > a {
     display: block;
     color: #fff;
@@ -57,6 +58,10 @@ export const Table = styled.table`
   padding: 0.5rem;
   }
   td {
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    cursor: copy;
+    max-width: 10rem;
     padding: 1rem;
     text-align: start;
     background-color:  rgb(82 82 91);
@@ -67,7 +72,8 @@ export const Table = styled.table`
   }
 
   @media screen and (max-width: 1140px) {
-   width: 80%;
+    table-layout: fixed;
+   width: 90%;
     margin: 0 auto;
     thead {
       display: none;
@@ -77,6 +83,8 @@ export const Table = styled.table`
       flex-direction: column;
 
       td {
+        overflow-wrap: break-word;
+        max-width: 100%;
         p {
           display: block;
           color: #24a66b;;

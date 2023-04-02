@@ -2,26 +2,10 @@ import { CharacterProps } from "./CharacterProps.types"
 import { CharacterCard } from '@/components/CharacterCard'
 import { Container, Table } from "./styles"
 import Link from "next/link";
+import { formatResult } from "utils/formatResultsTable";
+import { copyToClipboard } from "utils/copyToClipboard";
 export const CharacterDetail: React.FC<CharacterProps> = (details: CharacterProps) => {
 
-  function getDefault() {
-    return 'N/A';
-  }
-
-  function getValue(value: any) {
-    switch (typeof value) {
-      case 'object':
-        return value.name || getDefault();
-      case 'boolean':
-        return value ? 'Yes' : 'No';
-      case 'string':
-        return value || getDefault();
-      case 'number':
-        return value || getDefault();
-      default:
-        return getDefault();
-    }
-  }
   const data = Object.entries(details)
   return (
     <Container>
@@ -44,9 +28,9 @@ export const CharacterDetail: React.FC<CharacterProps> = (details: CharacterProp
           <tbody>
             <tr>
               {data.map(([key, value]) => (
-                <td key={key}>
+                <td key={key} onClick={() => copyToClipboard(value)}>
                   <p>{key.toLocaleUpperCase()}</p>
-                  {getValue(value)}
+                  {formatResult(value)}
                 </td>
               ))}
             </tr>
