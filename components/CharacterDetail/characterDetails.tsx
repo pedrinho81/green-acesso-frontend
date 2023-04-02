@@ -28,7 +28,7 @@ export const CharacterDetail: React.FC<CharacterProps> = (details: CharacterProp
           <tbody>
             <tr>
               {data.map(([key, value]) => (
-                <td key={key} onClick={() => copyToClipboard(value)}>
+                <td key={key} onClick={() => copyToClipboard(formatResult(value))}>
                   <p>{key.toLocaleUpperCase()}</p>
                   {formatResult(value)}
                 </td>
