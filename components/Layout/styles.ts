@@ -60,7 +60,11 @@ flex-direction: column;
 color: ${({ active }) => (active ? 'var(--green)' : "var(--gray)")};
 text-decoration: ${({ active }) => (active ? "underline" : "none")};
 font-family: ${({ active }) => (!active ? "Archivo Black":"sans-serif"  )} sans-serif;
+:hover {
+  opacity: .8;
+  transition: ease-in-out 0.21s
 
+}
   @media (min-width: 768px) {    
     margin: 0px 10px;
   }
